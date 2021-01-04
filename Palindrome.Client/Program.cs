@@ -1,8 +1,9 @@
 ﻿using System;
+using Palindrome.Domain.Models;
 
 namespace Palindrome.Client
 {
-    class Program
+    public class Program
     {
         static void Main(string[] args)
         {
@@ -10,6 +11,7 @@ namespace Palindrome.Client
         }
         static void UserView()
         {
+            User user = new User();
             var input = "";
             bool done = false;
             Console.WriteLine("Welcome to the Palindrome Checker Challenge!");
@@ -17,7 +19,7 @@ namespace Palindrome.Client
             {
                 Console.WriteLine("Please enter a word to check if it's a palindrome or not!");
                 input = Console.ReadLine();
-                if(IsPalindrome(input) == true)
+                if(user.IsPalindrome(input) == true)
                 {
                     Console.WriteLine(input + " is a Palindrome!");
                 }
@@ -58,19 +60,19 @@ namespace Palindrome.Client
             Console.WriteLine("Something went wrong in ContinueOrStop method");
             return true;
         }
-        static bool IsPalindrome(string s)
-        {
-            int length = s.Length;
-            s = s.ToLower();
-            for(int i=0; i<length/2; i++)
-            {
-                if(s[i] != s[length-i-1])
-                {
-                    return false;
-                }
-            }
-            return true;
-        }
+        // public static bool IsPalindrome(string s)
+        // {
+        //     int length = s.Length;
+        //     s = s.ToLower();
+        //     for(int i=0; i<length/2; i++)
+        //     {
+        //         if(s[i] != s[length-i-1])
+        //         {
+        //             return false;
+        //         }
+        //     }
+        //     return true;
+        // }
     }
     
 }
